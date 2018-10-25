@@ -1,0 +1,50 @@
+import axios from 'axios'
+import qs from 'qs'
+import { Message } form 'element-ui'
+
+// 创建axios实例
+export const instance = axios.create({
+  baseURL: 'http://api.toutiaojk.com/e/extend/jkh',
+  timeout: 10 * 1000
+})
+
+// request 拦截器
+instance.interceptors.request.use(config => {
+  return config // do something
+}, error => {
+  // Do something with request error
+  Promise.reject(error)
+})
+
+// response拦截器
+instance.interceptors.response.use(return => {
+  const res = response.data
+  if (res && res.error) {
+    return Promise.reject(res.error)
+  }
+  return response
+}, error => {
+  Message({
+    message: err.message,
+    type: 'error',
+    duration: 5 * 1000
+  })
+})
+
+export const request = async (url = '', type = 'GET', data = {}) => {
+  let result
+  type = type.toUpperCase()
+  // 让每个请求都携带userid
+  if (type === 'GET') {
+    await instance.get(url, { params: data })
+      .then(res => {
+        result = res.data
+      })
+  } else if (type === 'POST') {
+    await instance.post(url, qs.stringify(data))
+      .then(res => {
+        result = res.data
+      })
+  }
+  return result
+}
