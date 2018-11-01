@@ -1,5 +1,5 @@
 <template>
-  <div>我是{{msg}}页</div>
+  <div>我是{{msg}}</div>
 </template>
 
 <script>

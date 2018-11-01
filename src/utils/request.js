@@ -1,10 +1,11 @@
 import axios from 'axios'
 import qs from 'qs'
-import { Message } form 'element-ui'
+import store from '@/store'
+import { Message } from 'element-ui'
 
 // 创建axios实例
 export const instance = axios.create({
-  baseURL: 'http://api.toutiaojk.com/e/extend/jkh',
+  baseURL: 'http://api.toutiaojk.com/e/extend/jkh/',
   timeout: 10 * 1000
 })
 
@@ -17,7 +18,7 @@ instance.interceptors.request.use(config => {
 })
 
 // response拦截器
-instance.interceptors.response.use(return => {
+instance.interceptors.response.use(response => {
   const res = response.data
   if (res && res.error) {
     return Promise.reject(res.error)
@@ -29,12 +30,16 @@ instance.interceptors.response.use(return => {
     type: 'error',
     duration: 5 * 1000
   })
+  return Promise.reject(error)
 })
 
 export const request = async (url = '', type = 'GET', data = {}) => {
   let result
   type = type.toUpperCase()
   // 让每个请求都携带userid
+  if (store.state.user) {
+    data.userid = store.state.user.userid
+  }
   if (type === 'GET') {
     await instance.get(url, { params: data })
       .then(res => {

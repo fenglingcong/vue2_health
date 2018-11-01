@@ -22,7 +22,7 @@ const pic = () => import('@/page/index/children/manage/material/pic')
 
 Vue.use(Router)
 
-const routes = [
+export const routes = [
   {
     path: '',
     redirect: '/index'
@@ -36,32 +36,42 @@ const routes = [
     path: '/index',
     name: 'index',
     redirect: '/index/home',
+    meta: { login: true },
     component: index,
     children: [
       {
         path: 'home',
         name: 'home',
+        title: '主页',
+        icon: 'el-icon-fa-home',
         component: home
       },
       {
         path: 'publish',
         name: 'publish',
+        title: '发表',
+        icon: 'el-icon-fa-pencil',
         component: publish
       },
       {
         path: 'manage',
         name: 'manage',
+        title: '管理',
+        icon: 'el-icon-fa-cube',
         component: view,
         children: [
           {
             path: 'articles',
             name: 'articles',
+            title: '内容管理',
             component: articles,
             redirect: '/index/manage/articles/own',
             children: [
               {
                 path: 'own',
                 name: 'own',
+                title: '我发表的',
+                hidden: true,
                 component: own
               }
             ]
@@ -69,17 +79,22 @@ const routes = [
           {
             path: 'comment',
             name: 'comment',
+            title: '评论管理',
             component: comment,
             redirect: '/index/manage/comment/newest',
             children: [
               {
                 path: 'newest',
                 name: 'newest',
+                title: '最新评论',
+                hidden: true,
                 component: newest
               },
               {
                 path: 'all',
                 name: 'all',
+                title: '文章评论',
+                hidden: true,
                 component: all
               }
             ]
@@ -87,12 +102,15 @@ const routes = [
           {
             path: 'material',
             name: 'material',
+            title: '素材管理',
             component: material,
             redirect: '/index/manage/material/pic',
             children: [
               {
                 path: 'pic',
                 name: 'pic',
+                title: '图片管理',
+                hidden: true,
                 component: pic
               }
             ]
@@ -102,11 +120,15 @@ const routes = [
       {
         path: 'count',
         name: 'count',
+        title: '统计',
+        icon: 'el-icon-fa-bar-chart',
         component: count
       },
       {
         path: 'setting',
         name: 'setting',
+        title: '设置',
+        icon: 'el-icon-fa-cog',
         component: setting
       }
     ]
@@ -114,7 +136,8 @@ const routes = [
   {
     path: '/preview_article',
     name: 'preview',
-    component: preview
+    component: preview,
+    meta: { login: true }
   }
 ]
 

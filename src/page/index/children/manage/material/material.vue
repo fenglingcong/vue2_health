@@ -1,7 +1,7 @@
 <template>
-  <div>
-    我是{{msg}}页
-    <router-view></router-view>
+  <div id="material">
+    <my-tabs class="tab_main" :json="json"></my-tabs>
+    <my-view></my-view>
   </div>
 </template>
 
@@ -9,7 +9,12 @@
 export default {
   data () {
     return {
-      msg: '素材管理'
+      json: [
+        {
+          label: '图片收藏',
+          name: 'pic'
+        }
+      ]
     }
   }
 }

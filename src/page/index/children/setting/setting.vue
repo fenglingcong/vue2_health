@@ -1,12 +1,19 @@
 <template>
-  <div>我是{{msg}}页</div>
+  <div class="setting">
+    <my-tabs class="tab_main" :json="json"></my-tabs>
+  </div>
 </template>
 
 <script>
 export default {
   data () {
     return {
-      msg: '设置'
+      json: [
+        {
+          label: '设置选项',
+          name: 'setting'
+        }
+      ]
     }
   }
 }

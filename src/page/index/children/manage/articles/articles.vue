@@ -1,6 +1,6 @@
 <template>
-  <div>
-    我是{{msg}}页
+  <div id="articles">
+    <my-tabs class="tab_main" :json="json"></my-tabs>
     <router-view></router-view>
   </div>
 </template>
@@ -9,7 +9,12 @@
 export default {
   data () {
     return {
-      msg: '内容管理'
+      json: [
+        {
+          label: '我发表的',
+          name: 'own'
+        }
+      ]
     }
   }
 }
