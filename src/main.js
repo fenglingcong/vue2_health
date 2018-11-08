@@ -28,6 +28,7 @@ import view from '@/layout/view'
 import tabs from '@/components/tabs'
 import loading from '@/components/loading'
 import articleList from '@/components/articleList'
+import commentList from '@/components/commentList'
 import sticky from '@/components/sticky'
 
 Vue.config.productionTip = false
@@ -44,6 +45,7 @@ Vue.component('my-view', view)
 Vue.component('my-tabs', tabs)
 Vue.component('my-loading', loading)
 Vue.component('article-list', articleList)
+Vue.component('comment-list', commentList)
 Vue.component('my-sticky', sticky)
 
 // 全局路由判断

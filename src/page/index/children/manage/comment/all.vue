@@ -1,15 +1,19 @@
 <template>
-  <div>我是{{msg}}页</div>
+  <div id="all">我是{{msg}}页</div>
 </template>
 
 <script>
 export default {
   data () {
     return {
-      msg: 'allall all管理'
+      msg: ' all all all 管理'
     }
   }
 }
 </script>
 
-<style lang="stylus"></style>
+<style lang="stylus">
+#all{
+  padding: 20px 24px;
+}
+</style>

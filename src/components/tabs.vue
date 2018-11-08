@@ -15,7 +15,6 @@ export default {
   },
   watch: {
     activeName (val) {
-      console.log(val)
       this.$router.push({ name: val })
     }
   }

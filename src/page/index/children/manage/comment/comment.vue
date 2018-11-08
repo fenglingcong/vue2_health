@@ -1,6 +1,6 @@
 <template>
   <div>
-    我是{{msg}}页
+    <my-tabs class="tab_main" :json="json"></my-tabs>
     <router-view></router-view>
   </div>
 </template>
@@ -9,7 +9,16 @@
 export default {
   data () {
     return {
-      msg: '评论管理'
+      json: [
+        {
+          label: '最新评论',
+          name: 'newest'
+        },
+        {
+          label: '文章论评',
+          name: 'all'
+        }
+      ]
     }
   }
 }
