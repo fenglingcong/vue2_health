@@ -1,6 +1,6 @@
 <template>
   <el-aside id="menu" width="180px">
-    <el-menu active-text-color="#fff" :default-active="$route.name" :default-openeds="defaultOpeneds">
+    <el-menu :default-active="$route.name" :default-openeds="defaultOpeneds">
       <my-menu-item :json="filterRoutes"></my-menu-item>
     </el-menu>
   </el-aside>
@@ -62,10 +62,16 @@ export default {
   user-select: none;
   .el-submenu .el-menu-item{
     min-width: 180px;
+    i{
+      color: #909399;
+    }
   }
   .router-link-active > .el-menu-item {
     background: #f95e58;
     color: #fff;
+    i{
+      color: #fff;
+    }
   }
 }
 </style>

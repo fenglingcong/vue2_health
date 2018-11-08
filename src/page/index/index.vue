@@ -27,7 +27,7 @@ export default {
 #index{
   height: 100%;
   #horContainer{
-    margin: 112px auto 0;
+    margin: 36px auto 0;
     width: 1138px;
   }
 }

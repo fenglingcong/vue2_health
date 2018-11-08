@@ -28,6 +28,7 @@ import view from '@/layout/view'
 import tabs from '@/components/tabs'
 import loading from '@/components/loading'
 import articleList from '@/components/articleList'
+import sticky from '@/components/sticky'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
@@ -43,6 +44,7 @@ Vue.component('my-view', view)
 Vue.component('my-tabs', tabs)
 Vue.component('my-loading', loading)
 Vue.component('article-list', articleList)
+Vue.component('my-sticky', sticky)
 
 // 全局路由判断
 router.beforeEach((to, from, next) => {

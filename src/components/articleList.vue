@@ -70,11 +70,7 @@
       </template>
     </el-row>
     <!-- 分享 -->
-    <el-dialog
-      title="分享"
-      :visible.sync="centerDialogVisible"
-      width="30%"
-      center>
+    <el-dialog title="分享" :visible.sync="centerDialogVisible" width="240px" center>
       <ul class="share-wrap">
         <li class="wx"></li>
         <li class="qq"></li>
@@ -283,6 +279,7 @@ export default {
     display: inline-block;
     width: 40px;
     height: 40px;
+    cursor: pointer;
   }
 }
 </style>

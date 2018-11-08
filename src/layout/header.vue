@@ -32,9 +32,7 @@ export default {
 
 <style lang="stylus">
 #header{
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
   min-width: 1138px;
   background: #fff;

@@ -21,23 +21,25 @@ export default {
     if (typeof content !== 'string') {
       content = JSON.stringify(content)
     }
-    return window.sessionStorage.setItem(name, content)
+    window.sessionStorage.setItem(name, content)
   },
   removeSession (name) {
     if (!name) return
-    return window.sessionStorage.removeItem(name)
+    window.sessionStorage.removeItem(name)
   },
   getLocal (name) {
     if (!name) return
-    return window.loaclStorage.getItem(name)
+    return window.localStorage.getItem(name)
   },
   setLocal (name, content) {
     if (!name) return
-    if (typeof content !== 'string') {};
-    return window.loaclStorage.setItem(name, content)
+    if (typeof content !== 'string') {
+      content = JSON.stringify(content)
+    }
+    window.localStorage.setItem(name, content)
   },
   removeLocal (name) {
     if (!name) return
-    return window.loaclStorage.removeItem(name)
+    window.localStorage.removeItem(name)
   }
 }
