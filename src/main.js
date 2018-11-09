@@ -13,6 +13,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.min.css'
 import '@/assets/css/animate.css'
+import VueProgressBar from 'vue-progressbar'
 import VueNumTo from 'vue-num-to'
 import '@/assets/css/reset.css'
 import '@/assets/css/icon.less'
@@ -30,10 +31,15 @@ import loading from '@/components/loading'
 import articleList from '@/components/articleList'
 import commentList from '@/components/commentList'
 import sticky from '@/components/sticky'
+import backTop from '@/components/backTop'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(VueAwesomeSwiper)
+Vue.use(VueProgressBar, {
+  failedColor: '#f30',
+  thickness: '4px'
+})
 Vue.use(VueNumTo)
 
 Vue.component('my-header', header)
@@ -46,6 +52,7 @@ Vue.component('my-tabs', tabs)
 Vue.component('my-loading', loading)
 Vue.component('article-list', articleList)
 Vue.component('comment-list', commentList)
+Vue.component('my-backTop', backTop)
 Vue.component('my-sticky', sticky)
 
 // 全局路由判断

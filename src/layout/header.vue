@@ -3,13 +3,13 @@
     <div class="header_wrap">
       <router-link to="/" class="logo"></router-link>
       <div class="right">
-        <router-link to="/">
+        <router-link :to="{name: 'publish'}">
           <el-button type="primary">发表</el-button>
         </router-link>
         <el-dropdown class="user" @command="handleCommand">
           <div class="userinfo">
-            <img src="http://wx.qlogo.cn/mmopen/vi_32/kAPpoX9tk40ZdeV9lyaJ9FjicsHJamL6MRsNicObcr1ejXkh00qtoG56NIiaWjLia5wdXHqDeQiaf2rcw5efCiaatPtA/132" alt="">
-            <span class="el-dropdown-link">是肯</span>
+            <img :src="user.headimgurl" alt="">
+            <span class="el-dropdown-link">{{user.nickname}}</span>
           </div>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item command="exit">退出</el-dropdown-item>
@@ -21,10 +21,18 @@
 </template>
 
 <script>
+import {mapState, mapMutations} from 'vuex'
 export default {
+  computed: {
+    ...mapState(['user'])
+  },
   methods: {
+    ...mapMutations(['remove_token']),
     handleCommand (command) {
-      console.log(command)
+      if (command === 'exit') {
+        this.remove_token()
+        this.$router.push('/login')
+      }
     }
   }
 }
